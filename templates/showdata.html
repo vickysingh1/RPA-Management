@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+   
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  cursor: pointer;
+  font-size: 15px;
+  float: right;
+margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* Darker background on mouse-over */
+/* .btn:hover {
+  background-color: RoyalBlue;
+} */
+  </style>
+</head>
+<body>
+  <form>
+    <div type="submit" id="showdata" style="margin-left:5px;margin-top: 5px;text-decoration: underline;cursor:pointer" class="">back</div>
+       </form>
+
+       <!-- <div type="button" id="exceldata" style="margin-right:0%;margin-top: 5px;text-decoration: underline;color:#212529;cursor:pointer;float: left;" class="">download</div> -->
+       <a href="{{url_for('getCSV')}}"><div class="btn"><i class="fa fa-download"></i> Download</div></a>
+<div style="margin-top: 30px; margin-left: 10px;margin-right: 10px;">
+   
+    <table class="table"  id="myTable">
+         
+        <thead class="thead-dark">
+         
+          <tr>
+            
+            <th scope="col">ID</th>
+            <th scope="col">TestCases</th>
+            <th scope="col">Organization</th>
+            <th scope="col">Project</th>
+            <th scope="col">Service ID</th>
+            <th scope="col">Service</th>
+            <th scope="col">Active</th>
+            <th scope="col">Location</th>
+            <th scope="col">Created By</th>
+            <th scope="col">CaseType</th>
+            <th scope="col">TestType</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+            {% for row in data2 %} 
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                <td>{{row[7]}}</td>
+                <td>{{row[8]}}</td>
+                <td>{{row[9]}}</td>
+                <td>{{row[10]}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+      <script>
+        $(document).ready( function () {
+        $('#myTable').DataTable({
+        })
+    } );
+    
+    $(document).ready(function() {
+       $('#showdata').click(function(){
+              location.href="index";
+       });
+      });
+
+
+      // $(document).ready(function(){
+      //   $("#exceldata").click(function(){
+      //     $.ajax({
+      //       url: "/getPlotCSV",
+      //       type: "post",
+      //       success: function(data) {
+              
+      //         // dataPlot = JSON.parse(data);
+      //         //   console.log(dataPlot); 
+      //         //   var filename = "testdata.csv"; 
+      //         //   download(filename, csv); 
+      //       }
+      //   });
+      //   });
+      // })
+        </script>
+     
+</body>
+</html>

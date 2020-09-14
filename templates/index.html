@@ -1,0 +1,284 @@
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <meta charset="utf-8" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>Data Tables</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+ 
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+     <script src="jquery.toaster.js"></script>
+     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+     <!-- <script src="../static/main.js"></script> -->
+    
+
+     <!------ Include the above in your HEAD tag ---------->
+     <style>
+         @import "font-awesome.min.css";
+@import "font-awesome-ie7.min.css";
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: rgb(209, 208, 208);
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e4e1e1;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+     </style>
+ </head>
+<body>
+  <div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-Secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#"> <div>
+        <input type="submit" value="Logout" id="logout" class="btn btn-danger" style="margin-right:13px;cursor:pointer;float: right;">
+        
+        </div></a>
+    </div>
+  </div>
+<div class="container" style="margin-top: 12px;">
+ 
+  <div class="toast mt-3">
+    <div id="status" class="toast-header">
+      
+    </div>
+    <div id="valstatus" class="toast-body">
+     
+    </div>
+  </div>
+    <div style="text-align:center"><h1 class="well">TEST CASES</h1></div>
+	<div class="col-lg-12 well">
+	<div class="row">
+				<form id="myform">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>ID</label>
+                                <input type="number" class="form-control" id="ID" placeholder="Please enter ID" name="id" required="required">
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>TestCases</label>
+                                <input type="text" class="form-control" name="TestCases" placeholder="Please enter TestCase" id="TestCases" required="required">
+							</div>
+                        </div>		
+                        <div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Organization</label>
+								<input type="number" class="form-control" name="Organization" placeholder="Please enter Organization ID" id="Organization" required="required" >
+              </div>
+              <div class="col-sm-6 form-group">
+								<label>Project</label>
+								<input type="text" class="form-control" name="project" placeholder="Please enter project" id="project" required="required">
+              </div>
+              <div class="col-sm-6 form-group">
+								<label>Service ID</label>
+								<input type="number" class="form-control" name="Serviceid" placeholder="Please enter ServiceID Number" id="Serviceid" required="required">
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Service</label>
+                                <input type="text" class="form-control" name="Service"  placeholder="Please enter Service name" id="Service" required="required">
+							</div>
+                        </div>	
+                        <div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Active</label>
+                                <input type="number" class="form-control" name="Active" placeholder="Please enter Active" id="Active" required="required">
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Location</label>
+								<input type="text" class="form-control" name="Loc" id="Location" placeholder="Please enter Script Location " required="required">
+							</div>
+                        </div>	
+                        <div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Created By</label>
+								<input type="text" class="form-control" name="Created_By" id="Created_By" placeholder="Please enter Created_By" required="required">
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>CaseType</label>
+								<input type="text" class="form-control" name="abc" id="CaseType" placeholder="Please enter CaseType" required="required">
+              </div>
+             
+                        </div>	
+                        <div class="row">
+							<div class="col-sm-6 form-group">
+								<label>TestType</label>
+                                <input type="text" class="form-control" name="TestType" id="TestType" placeholder="Please enter TestType" required="required">
+							</div>
+                        </div>		
+                        	
+                        <button type="button" id="submitform" class="btn btn-success" style="float: right;height: 32px;">Save</button>		
+                    			
+					</div>
+        </form> 
+       
+                </div>  
+               	    
+  </div>
+  <form action="/showdata">
+    <div type="submit" id="showdata" style="margin-top: 5px;text-decoration: underline;cursor:pointer" class="">Show Data</div>
+
+
+       </form>
+       <form>
+       
+    
+    
+           </form>
+    </div>
+    <script>
+         $(document).ready(function() {
+       $('#submitform').click(function(){
+        var ID= $("#ID").val();
+        var TestCases= $("#TestCases").val();
+        var Organization= $("#Organization").val();
+        var project= $("#project").val();
+        var serviceid= $("#Serviceid").val();
+        var Service= $("#Service").val();
+        var Active= $("#Active").val();
+        var Location= $("#Location").val();
+        var Created_By= $("#Created_By").val();
+        var CaseType= $("#CaseType").val();
+        var TestType= $("#TestType").val();
+        if(ID==="" || TestCases==="" || Organization==="" || serviceid==="" || Service==="" || Active==="" || Location==="" || Created_By==="" || CaseType==="" || TestType===""){
+          toastr.warning('please fill all the data fields');
+        }
+        else{
+        // console.log(ID,TestCases,Organization,Service)
+           $.ajax({
+           url: "/ind",
+           type: "POST",
+           data: $('#myform').serialize(),
+           success: function(response) {
+           
+          //  $("#wordResult").html(response.html);
+          if(response.includes("Not")==true){
+          
+            toastr.warning(response);
+          }
+          else{
+            toastr.success(response);
+          document.getElementById("ID").value="";
+          document.getElementById("TestCases").value="";
+          document.getElementById("Organization").value="";
+          document.getElementById("project").value="";
+          document.getElementById("Serviceid").value="";
+          document.getElementById("Service").value="";
+          document.getElementById("Active").value="";
+          document.getElementById("Location").value="";
+          document.getElementById("Created_By").value="";
+          document.getElementById("CaseType").value="";
+          document.getElementById("TestType").value="";
+            
+          }
+      
+
+          },
+          error: function(xhr) {
+            console.log(xhr)
+         }
+         });
+        }
+       });
+    });
+         $(document).ready(function() {
+       $('#showdata').click(function(){
+              location.href="showdata";
+       });
+      });
+      $(document).ready(function() {
+       $('#logout').click(function(){
+              location.href="logout";
+       });
+      });
+    </script>
+</body>
+ </html>
